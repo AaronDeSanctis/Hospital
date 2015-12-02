@@ -1,0 +1,21 @@
+C:\Users\ADeSanctis_be\Documents\Visual Studio 2013\Projects\SandwichCyborg\Hospital\Hospital\bin\Debug\Hospital.dll
+C:\Users\ADeSanctis_be\Documents\Visual Studio 2013\Projects\SandwichCyborg\Hospital\Hospital\bin\Debug\Hospital.pdb
+C:\Users\ADeSanctis_be\Documents\Visual Studio 2013\Projects\SandwichCyborg\Hospital\Hospital\obj\Debug\Hospital.dll
+C:\Users\ADeSanctis_be\Documents\Visual Studio 2013\Projects\SandwichCyborg\Hospital\Hospital\obj\Debug\Hospital.pdb
+C:\Users\ADeSanctis_be\Documents\CSharp\CSharpProjects\Hospital\Hospital\bin\Debug\Hospital.dll
+C:\Users\ADeSanctis_be\Documents\CSharp\CSharpProjects\Hospital\Hospital\bin\Debug\Hospital.pdb
+C:\Users\ADeSanctis_be\Documents\CSharp\CSharpProjects\Hospital\Hospital\obj\Debug\Hospital.dll
+C:\Users\ADeSanctis_be\Documents\CSharp\CSharpProjects\Hospital\Hospital\obj\Debug\Hospital.pdb
+C:\Users\ADeSanctis_be\Documents\CSharp\CSharpProjects\Hospital\Hospital\bin\Debug\client_secret.json
+C:\Users\ADeSanctis_be\Documents\CSharp\CSharpProjects\Hospital\Hospital\bin\Debug\Google.ProtocolBuffers.dll
+C:\Users\ADeSanctis_be\Documents\CSharp\CSharpProjects\Hospital\Hospital\bin\Debug\Google.ProtocolBuffers.Serialization.dll
+C:\Users\ADeSanctis_be\Documents\CSharp\CSharpProjects\Hospital\Hospital\bin\Debug\log4net.dll
+C:\Users\ADeSanctis_be\Documents\CSharp\CSharpProjects\Hospital\Hospital\bin\Debug\Microsoft.Threading.Tasks.dll
+C:\Users\ADeSanctis_be\Documents\CSharp\CSharpProjects\Hospital\Hospital\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.dll
+C:\Users\ADeSanctis_be\Documents\CSharp\CSharpProjects\Hospital\Hospital\bin\Debug\Microsoft.Threading.Tasks.Extensions.dll
+C:\Users\ADeSanctis_be\Documents\CSharp\CSharpProjects\Hospital\Hospital\bin\Debug\Google.ProtocolBuffers.xml
+C:\Users\ADeSanctis_be\Documents\CSharp\CSharpProjects\Hospital\Hospital\bin\Debug\Google.ProtocolBuffers.Serialization.xml
+C:\Users\ADeSanctis_be\Documents\CSharp\CSharpProjects\Hospital\Hospital\bin\Debug\log4net.xml
+C:\Users\ADeSanctis_be\Documents\CSharp\CSharpProjects\Hospital\Hospital\bin\Debug\Microsoft.Threading.Tasks.xml
+C:\Users\ADeSanctis_be\Documents\CSharp\CSharpProjects\Hospital\Hospital\bin\Debug\Microsoft.Threading.Tasks.Extensions.xml
+C:\Users\ADeSanctis_be\Documents\CSharp\CSharpProjects\Hospital\Hospital\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.xml

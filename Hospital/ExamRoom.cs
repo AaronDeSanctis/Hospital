@@ -29,7 +29,7 @@ namespace Hospital
                 RealSymptoms.Add(symptomChecker.checkSymptoms(symptom));
             }
         }
-        List<Treatment> Diagnose()
+        public List<Treatment> Diagnose()
         {
             TreatmentChooser treatmentChooser = new TreatmentChooser(RealSymptoms);
             return treatmentChooser.ReturnTreatmentList();

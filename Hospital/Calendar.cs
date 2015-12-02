@@ -46,6 +46,13 @@ namespace Hospital
             GetEventData(credential);
         }
 
+        public void AddAppointment(DateTime appt, Patient p, Doctor dr)
+        {
+            UserCredential credential = Login();
+
+            AddEvent(appt, p, dr, credential);
+        }
+
 
         private void GetEventData(UserCredential credential)
         {
@@ -86,7 +93,7 @@ namespace Hospital
             Console.Read();
         }
 
-        /*private void addAppointment(DateTime appt, Patient patient, Doctor doctor)
+        private void AddEvent(DateTime appt, Patient patient, Doctor doctor, UserCredential credential)
         {
             // Create Google Calendar API service.
             var service = new CalendarService(new BaseClientService.Initializer()
@@ -97,49 +104,42 @@ namespace Hospital
 
             //Add an event.
             Event appointment = new Event();
-            appointment.setSummary("Medical appointment");
-            appointment.setLocation("The fake hospital");
-            appointment.setDescription("Dealing with your foot fungus"); // need patient symptoms here.
 
             //Start time.
-            EventDateTime start = new EventDateTime();
-            start.setDateTime(appt);
-            start.setTimeZone("America/Chicago");
-            appointment.setStart(start);
+            EventDateTime apptStart = new EventDateTime();
+            apptStart.DateTime = appt;
+            appointment.Start = apptStart;
 
             //End time.
-            apptEndTime = appt.AddHours(1);
-            EventDateTime end = new EventDateTime();
-            end.setDateTime(apptEndTime);
-            end.setTimeZone("America/Chicago");
-            appointment.setEnd(end);
+            EventDateTime apptEnd = new EventDateTime();
+            apptEnd.DateTime = appt.AddHours(1);
+            appointment.End = apptEnd;
 
-            //Recurrence = new String[] { "RRULE:FREQ=WEEKLY;BYDAY=MO" }
+            //Location and description.
+            appointment.Location = "The fake hospital";
+            appointment.Description = "Dealing with your foot fungus"; // need patient symptoms here.
 
             // Set attendees.
-            EventAttendee pt = new EventAttendee();
-            pt.DisplayName = patient.get(Name);
-            pt.Email = "fake_patient@gmail.com";
-            pt.Organizer = false;
-            pt.Resource = false;
-            EventAttendee dr = new EventAttendee();
-            dr.DisplayName = doctor.get(Name);
-            dr.Email = "fake_doctor@gmail.com";
-            dr.Organizer = false;
-            dr.Resource = false;
+            appointment.Attendees = new List<EventAttendee>();
+            var p = new EventAttendee()
+            {
+                DisplayName = patient.GiveName(),
+                Email = "fake_patient@gmail.com",
+                Organizer = false,
+                Resource = false,
+            };
+            appointment.Attendees.Add(p);
+            var dr = new EventAttendee()
+            {
+                DisplayName = doctor.GiveName(),
+                Email = "fake_doctor@gmail.com",
+                Organizer = false,
+                Resource = false,
+            };
+            appointment.Attendees.Add(dr);
 
-            IList<EventAttendee> lstOfAtendee = new List<EventAttendee>();
-            lstOfAttendee.Add(pt);
-            lstOfAttendee.Add(dr);
-            appointment.Attendees = lstOfAttendee;
-
-            EventsResource er = new EventsResource(Calendar_Service);
-
-            Event erinsersted = er.Insert(appointment, ddlCalendars.SelectedValue.ToString()).Fetch();
-
-            //event = service.events().insert(CalendarId, appointment).execute();
-            Console.WriteLine("Event created: %s\n", appointment.getHtmlLink());
-        }*/
+            Console.WriteLine("Event created: %s\n", appointment.HtmlLink);
+        }
 
     }
 }

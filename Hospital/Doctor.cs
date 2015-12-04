@@ -15,6 +15,12 @@ namespace Hospital
             this.age = age;
             Schedule = new Dictionary<string, string>();
         }
+
+        public override string ToString()
+        {
+            return this.name;
+        }
+
         private string prescribe(Patient patient)
         {
             return "Here's Your Prescription" + patient.name;

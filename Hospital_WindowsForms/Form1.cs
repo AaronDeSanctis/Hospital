@@ -38,7 +38,7 @@ namespace Hospital_WindowsForms
             patientObj.name = textBox1.Text;
             patientObj.phoneNumber = textBox3.Text;
             patientObj.DOB = dateTimePicker1.Value;
-            MessageBox.Show(patientObj.name + "\n" + patientObj.DOB.ToString());
+            // MessageBox.Show(patientObj.name + "\n" + patientObj.DOB.ToString());
             SetAppointment setAppointment = new SetAppointment(patientObj);
             setAppointment.Show();
             this.Hide();

@@ -42,9 +42,9 @@ C:\Users\Chilke\Documents\C#\Hospital\Hospital_WindowsForms\bin\Debug\System.Net
 C:\Users\Chilke\Documents\C#\Hospital\Hospital_WindowsForms\bin\Debug\Zlib.Portable.xml
 C:\Users\Chilke\Documents\C#\Hospital\Hospital_WindowsForms\obj\Debug\Hospital_WindowsForms.csprojResolveAssemblyReference.cache
 C:\Users\Chilke\Documents\C#\Hospital\Hospital_WindowsForms\obj\Debug\Hospital_WindowsForms.csproj.Hospital_WindowsForms.exe.config
+C:\Users\Chilke\Documents\C#\Hospital\Hospital_WindowsForms\obj\Debug\Hospital_WindowsForms.Form1.resources
 C:\Users\Chilke\Documents\C#\Hospital\Hospital_WindowsForms\obj\Debug\Hospital_WindowsForms.Properties.Resources.resources
+C:\Users\Chilke\Documents\C#\Hospital\Hospital_WindowsForms\obj\Debug\Hospital_WindowsForms.SetAppointment.resources
 C:\Users\Chilke\Documents\C#\Hospital\Hospital_WindowsForms\obj\Debug\Hospital_WindowsForms.csproj.GenerateResource.Cache
 C:\Users\Chilke\Documents\C#\Hospital\Hospital_WindowsForms\obj\Debug\Hospital_WindowsForms.exe
 C:\Users\Chilke\Documents\C#\Hospital\Hospital_WindowsForms\obj\Debug\Hospital_WindowsForms.pdb
-C:\Users\Chilke\Documents\C#\Hospital\Hospital_WindowsForms\obj\Debug\Hospital_WindowsForms.SetAppointment.resources
-C:\Users\Chilke\Documents\C#\Hospital\Hospital_WindowsForms\obj\Debug\Hospital_WindowsForms.Form1.resources

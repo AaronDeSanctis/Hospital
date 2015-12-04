@@ -32,15 +32,15 @@ namespace Hospital
         }
         public void SetFirstName(string FirstName)
         {
-            firstName = FirstName;
+            this.firstName = FirstName;
         }
         public void SetMiddleName(string MiddleName)
         {
-            middleName = MiddleName;
+            this.middleName = MiddleName;
         }
         public void SetLastName(string LastName)
         {
-            lastName = LastName;
+            this.lastName = LastName;
         }
         public void SetAddress1(string Address1)
         {

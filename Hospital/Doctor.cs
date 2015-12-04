@@ -9,9 +9,11 @@ namespace Hospital
     public class Doctor : MedProfessional
     {
         public Dictionary<string, string> Schedule;
+        string name;
         public Doctor(string name, int age)
         {
             Schedule = new Dictionary<string, string>();
+            this.name = name;
         }
 
         public override string ToString()
@@ -31,7 +33,7 @@ namespace Hospital
 
         internal string GiveName()
         {
-            throw new NotImplementedException();
+            return this.name;
         }
     }
 }

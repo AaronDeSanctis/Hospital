@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 ﻿using Google.Apis.Auth.OAuth2;
-=======
-using Google.Apis.Auth.OAuth2;
->>>>>>> 798d4f024ed09315d7b1ef9977ff8b05e3113c4f
 using Google.Apis.Services;
 using Google.Apis.Util.Store;
 using Google.Apis.Calendar.v3;
@@ -20,9 +16,8 @@ namespace Hospital
     public class Calendar
     {
         static string[] Scopes = { CalendarService.Scope.Calendar };
-        static string ApplicationName = "Google Calendar Hospital API";
-        //(Calendar ID: n8jhsq7f2jft4i4kpifle3g650 @group.calendar.google.com)
-        static string calendarID = "n8jhsq7f2jft4i4kpifle3g650@group.calendar.google.com";
+        private string ApplicationName = "Google Calendar Hospital API";
+        private string calendarID = "n8jhsq7f2jft4i4kpifle3g650@group.calendar.google.com";
 
         private static UserCredential Login()
         {
@@ -36,7 +31,7 @@ namespace Hospital
             return credentialObj;
         }
 
-        public void GetEvents()
+        public Events GetEvents()
         {
             UserCredential credentialObj = Login();
             Events events = GetEventData(credentialObj);
@@ -61,7 +56,6 @@ namespace Hospital
             return confirmation;
         }
 
-
         private Events GetEventData(UserCredential credentialObj)
         {
 
@@ -74,7 +68,9 @@ namespace Hospital
 
             // Define parameters of request.
             EventsResource.ListRequest request = service.Events.List(calendarID);
-            request.TimeMin = DateTime.Now;
+            DateTime today = DateTime.Now;
+            request.TimeMin = today.AddMonths(-1);
+            request.TimeMax = today.AddMonths(1);
             request.ShowDeleted = false;
             request.SingleEvents = true;
             request.MaxResults = 10;
@@ -82,14 +78,15 @@ namespace Hospital
 
             // List events.
             Events events = request.Execute();
-            if (events.Items.Count > 0)
+            return events;
+            /*if (events.Items.Count > 0)
             {
                 return events;
             }
             else
             {
                 return null;
-            }
+            }*/
         }
 
         private string AddEvent(DateTime appt, Patient patientObj, Doctor doctorObj, UserCredential credential)
@@ -122,7 +119,7 @@ namespace Hospital
 
                 Attendees = new EventAttendee[] {
                     new EventAttendee() { DisplayName = patientObj.GiveName(), Email = patientObj.emailAddress },
-                    new EventAttendee() { DisplayName = doctorObj.GiveName(), Email = doctorObj.emailAddress },
+                    new EventAttendee() { DisplayName = doctorObj.GiveName(), Email = "doctor@fakehospital.com" },
                 },
                 Reminders = new Event.RemindersData()
                 {
@@ -138,49 +135,8 @@ namespace Hospital
             Event createdEvent = request.Execute();
             string link = createdEvent.HtmlLink;
             return "Event Created " + link;
-            //Add an event.
-            /*Event appointment = new Event();
-
-            //Start time.
-            EventDateTime apptStart = new EventDateTime();
-            apptStart.DateTime = appt;
-            appointment.Start = apptStart;
-
-            //End time.
-            EventDateTime apptEnd = new EventDateTime();
-            apptEnd.DateTime = appt.AddHours(1);
-            appointment.End = apptEnd;
-
-            //Location and description.
-            appointment.Location = "The fake hospital";
-            appointment.Description = "Dealing with your foot fungus"; // need patient symptoms here.
-
-            // Set attendees.
-            appointment.Attendees = new List<EventAttendee>();
-            var p = new EventAttendee()
-            {
-                DisplayName = patient.GiveName(),
-                Email = "fake_patient@gmail.com",
-                Organizer = false,
-                Resource = false,
-            };
-            appointment.Attendees.Add(p);
-            var dr = new EventAttendee()
-            {
-                DisplayName = doctor.GiveName(),
-                Email = "fake_doctor@gmail.com",
-                Organizer = false,
-                Resource = false,
-            };
-            appointment.Attendees.Add(dr);
-            EventsResource.InsertRequest request = service.Events.Insert(appointment, calendarID);
-            Event createdEvent = request.Execute();
-            string link = createdEvent.HtmlLink;
-            return "Event Created " + link;
-            //Console.WriteLine("Event created: {0}", createdEvent.HtmlLink);*/
         }
 
     }
 }
 
-}

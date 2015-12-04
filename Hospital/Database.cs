@@ -12,8 +12,7 @@ namespace Hospital
 {
     public class Database
     {
-        string filePath = Path.GetFileName("xmlDC.xml");
-
+        string filePath = Path.GetFileName("xmlDB.xml");
         public void Save(Patient patient)
         {
             writePatient(filePath, patient);

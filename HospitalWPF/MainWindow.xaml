@@ -1,0 +1,6 @@
+﻿<Window x:Class="HospitalWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" MinHeight="525" MaxHeight="525" MinWidth="775" MaxWidth="775"
+        >
+</Window>

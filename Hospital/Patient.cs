@@ -11,6 +11,7 @@ namespace Hospital
         Random rand;
         List<string> SymptomList;
         public int patientNum;
+        public bool hasAppointment;
         public Patient()
         {
             SymptomList = new List<string>() { "Cough", "Bloody Stool", "Broken Bone", "Lasceration", "Tumor", "Sneezing", "Jaundice", "Diarrhea", "Constipation", "Vomiting" };
@@ -19,13 +20,13 @@ namespace Hospital
             int numOfSymptoms = rand.Next(5);
             generateSymptoms(numOfSymptoms);
         }
-        public void GetStats(string Name, int Age, string PhoneNumber, bool HealthIns)
+        public void GetStats(string Name, int Age, string PhoneNumber, bool HealthIns, int PatientNum)
         {
             this.name = Name;
             this.age = Age;
             this.phoneNumber = PhoneNumber;
             this.healthIns = HealthIns;
-            this.patientNum = GiveRandomPatientNum();
+            this.patientNum = PatientNum;
         }
         private void generateSymptoms(int NumOfSymptoms)
         {
@@ -59,6 +60,10 @@ namespace Hospital
             Console.WriteLine(treatment.treatmentName);
             Console.WriteLine(treatment.instructions);
             Console.ReadLine();
+        }
+        public DateTime MakeAppointment(DateTime datetime)
+        {
+            return datetime;
         }
     }
 }

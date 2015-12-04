@@ -11,22 +11,16 @@ namespace Hospital
         public Dictionary<string, string> Schedule;
         public Doctor(string name, int age)
         {
-            this.name = name;
-            this.age = age;
             Schedule = new Dictionary<string, string>();
         }
         private string prescribe(Patient patient)
         {
-            return "Here's Your Prescription" + patient.name;
+            return "Here's Your Prescription";
         }
         private string diagnosis(Patient patient)
         {
-            return "Here's Your Diagnosis" + patient.name;
+            return "Here's Your Diagnosis";
         }
 
-        public List<string> ExaminePatient(Patient patient)
-        {
-            return patient.GiveSymptoms();
-        }
     }
 }

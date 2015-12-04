@@ -11,7 +11,6 @@ namespace Hospital
         FrontDesk frontDesk;
         Doctor doctor;
         Nurse nurse;
-        Patient patient;
         Random rand;
         List<Patient> patients;
         ExamRoom examRoom;
@@ -31,28 +30,17 @@ namespace Hospital
             while (true)
             {
                 TodaysDate = GenerateDate();
-                GeneratePatients(rand.Next(15) + 1);
                 nurse = GenerateNurse(); doctor = GenerateDoctor();
                 foreach (Patient patient in patients)
                 {
                     frontDesk = new FrontDesk(nurse, patient);
                     makeAppointment = new Appointment(patient, doctor, rand.Next(2400).ToString(), "12" + rand.Next(31));
                     examRoom = new ExamRoom(doctor, patient);
-                    patient.ReceiveTreatments(Prognosis);
                     PatientsToFormer(patient);
                 }
                 dayCounter++;
             }
 
-        }
-        void GeneratePatients(int NumOfPatients)
-        {
-            for (int i = 0; i < NumOfPatients; i++)
-            {
-                patient = new Patient();
-                patient.GetStats(GenerateString(), rand.Next(100), RandomDigits(10, 10), rand.NextDouble() >= 0.5, GeneratePatientNum());
-                patients.Add(patient);
-            }
         }
 
         private int GeneratePatientNum()

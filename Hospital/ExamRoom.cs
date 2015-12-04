@@ -18,7 +18,6 @@ namespace Hospital
             this.doctor = doctor;
             this.patient = patient;
             patientSymptoms = new List<string>();
-            patientSymptoms = doctor.ExaminePatient(patient);
             symptomChecker = new SymptomChecker();
             RealSymptoms = new List<Symptom>();
         }

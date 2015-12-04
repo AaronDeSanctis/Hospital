@@ -24,3 +24,5 @@ C:\Users\ADeSanctis_be\Documents\CSharp\CSharpProjects\Hospital\HospitalWPF\bin\
 C:\Users\ADeSanctis_be\Documents\CSharp\CSharpProjects\Hospital\HospitalWPF\bin\Debug\System.Net.Http.Primitives.dll
 C:\Users\ADeSanctis_be\Documents\CSharp\CSharpProjects\Hospital\HospitalWPF\bin\Debug\System.Net.Http.Extensions.xml
 C:\Users\ADeSanctis_be\Documents\CSharp\CSharpProjects\Hospital\HospitalWPF\bin\Debug\System.Net.Http.Primitives.xml
+C:\Users\ADeSanctis_be\Documents\CSharp\CSharpProjects\Hospital\HospitalWPF\obj\Debug\Schedule.baml
+C:\Users\ADeSanctis_be\Documents\CSharp\CSharpProjects\Hospital\HospitalWPF\obj\Debug\Schedule.g.cs

@@ -8,13 +8,22 @@ namespace Hospital
 {
     public abstract class Person
     {
-        public List<string> Symptoms;
-        public string name;
-        public int age;
         public DateTime DOB;
+        public int patientNum;
+        public string firstName;
+        public string middleName;
+        public string lastName;
+        public string address1;
+        public string address2;
+        public string dateOfBirth;
+        public string state;
+        public string height;
+        public string weight;
+        public string SSN;
+        public string emailAddress;
         public string phoneNumber;
-        public bool healthIns;
-        public bool available;
+        public string zipCode;
+        public string city;
         public void Talk(List<string> sentence)
         {
             foreach (string word in sentence)
@@ -35,26 +44,22 @@ namespace Hospital
         {
 
         }
-        public List<string> GiveSymptoms()
-        {
-            return Symptoms;
-        }
-        public string GiveName()
-        {
-            return name;
-        }
-        public int GiveAge()
-        {
-            return age;
-        }
-        public string GivePhoneNumber()
-        {
-            return phoneNumber;
-        }
-        public bool GiveHealthIns()
-        {
-            return healthIns;
-        }
+        //public List<string> GiveSymptoms()
+        //{
+        //    return Symptoms;
+        //}
+        //public string GiveName()
+        //{
+        //    return name;
+        //}
+        //public int GiveAge()
+        //{
+        //    return age;
+        //}
+        //public bool GiveHealthIns()
+        //{
+        //    return healthIns;
+        //}
 
     }
 }

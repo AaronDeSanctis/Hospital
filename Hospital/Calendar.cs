@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿using Google.Apis.Auth.OAuth2;
+=======
+using Google.Apis.Auth.OAuth2;
+>>>>>>> 798d4f024ed09315d7b1ef9977ff8b05e3113c4f
 using Google.Apis.Services;
 using Google.Apis.Util.Store;
 using Google.Apis.Calendar.v3;
@@ -22,53 +26,49 @@ namespace Hospital
 
         private static UserCredential Login()
         {
-            UserCredential credential;
+            UserCredential credentialObj;
 
             using (var stream = new FileStream("client_secret.json", FileMode.Open, FileAccess.Read))
             {
-
-                //credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(new ClientSecrets{ClientId = "PUT_CLIENT_ID_HERE", ClientSecret = "PUT_CLIENT_SECRETS_HERE"},
-                //                new[] { BooksService.Scope.Books }, "user", CancellationToken.None, new FileDataStore(credPath, true));
-
-                credential = GoogleWebAuthorizationBroker.AuthorizeAsync(GoogleClientSecrets.Load(stream).Secrets, Scopes, "user", CancellationToken.None, new FileDataStore("Books.ListMyLibrary")).Result;
-                //Console.WriteLine("Credential file saved to: " + credPath);
+                credentialObj = GoogleWebAuthorizationBroker.AuthorizeAsync(GoogleClientSecrets.Load(stream).Secrets, Scopes, "user", CancellationToken.None, new FileDataStore("Books.ListMyLibrary")).Result;
             }
 
-            return credential;
+            return credentialObj;
         }
 
         public void GetEvents()
         {
-            //UserCredential credential = Login();
+            UserCredential credentialObj = Login();
+            Events events = GetEventData(credentialObj);
+            return events;
+            /*foreach (var eventItem in events.Items)
+            {
+                string when = eventItem.Start.DateTime.ToString();
+                if (String.IsNullOrEmpty(when))
+                {
+                    when = eventItem.Start.Date;
+                }
 
-            GetEventData();
+                string eventStr = String.Format("{0} ({1})", eventItem.Summary, when);
+            }
+            return when;*/
         }
 
-        public string AddAppointment(DateTime appt, Patient p, Doctor dr)
+        public string AddAppointment(DateTime appt, Patient patientObj, Doctor doctorObj)
         {
-            UserCredential credential = Login();
-            string confirmation = AddEvent(appt, p, dr, credential);
+            UserCredential credentialObj = Login();
+            string confirmation = AddEvent(appt, patientObj, doctorObj, credentialObj);
             return confirmation;
         }
 
 
-        private void GetEventData()
+        private Events GetEventData(UserCredential credentialObj)
         {
-            UserCredential credential;
-
-            using (var stream = new FileStream("client_secret.json", FileMode.Open, FileAccess.Read))
-            {
-
-                //credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(new ClientSecrets{ClientId = "PUT_CLIENT_ID_HERE", ClientSecret = "PUT_CLIENT_SECRETS_HERE"},
-                //                new[] { BooksService.Scope.Books }, "user", CancellationToken.None, new FileDataStore(credPath, true));
-
-                credential = GoogleWebAuthorizationBroker.AuthorizeAsync(GoogleClientSecrets.Load(stream).Secrets, Scopes, "user", CancellationToken.None, new FileDataStore("Books.ListMyLibrary")).Result;
-            }
 
             // Create Google Calendar API service.
             var service = new CalendarService(new BaseClientService.Initializer()
             {
-                HttpClientInitializer = credential,
+                HttpClientInitializer = credentialObj,
                 ApplicationName = ApplicationName,
             });
 
@@ -81,44 +81,27 @@ namespace Hospital
             request.OrderBy = EventsResource.ListRequest.OrderByEnum.StartTime;
 
             // List events.
-            Console.WriteLine("Upcoming events:");
             Events events = request.Execute();
             if (events.Items.Count > 0)
             {
-                foreach (var eventItem in events.Items)
-                {
-                    string when = eventItem.Start.DateTime.ToString();
-                    if (String.IsNullOrEmpty(when))
-                    {
-                        when = eventItem.Start.Date;
-                    }
-                    Console.WriteLine("{0} ({1})", eventItem.Summary, when);
-                }
+                return events;
             }
             else
             {
-                Console.WriteLine("No upcoming events found.");
+                return null;
             }
-            Console.Read();
         }
 
-        private string AddEvent(DateTime appt, Patient patient, Doctor doctor, UserCredential credential)
+        private string AddEvent(DateTime appt, Patient patientObj, Doctor doctorObj, UserCredential credential)
         {
-            // Create Google Calendar API service.
+            // Create Google Calendar API service
             CalendarService service = new CalendarService(new BaseClientService.Initializer()
             {
                 HttpClientInitializer = credential,
                 ApplicationName = ApplicationName,
             });
 
-            //string googleUserName = "falagard@gmail.com";
-            //string googlePassword = "winnie";
-            //Uri calendarUri = GetGoogleCalendarUri();
-
-            //Initialize Calendar Service
-            //CalendarService service = new CalendarService("AIConsole");
-            //service.setUserCredentials(googleUserName, googlePassword);
-
+            // Create Event
             Event newEvent = new Event()
             {
                 Summary = "Doctor's appointment ",
@@ -134,9 +117,12 @@ namespace Hospital
                     DateTime = appt.AddHours(1),
                     TimeZone = "America/Chicago",
                 },
+
                 //Recurrence = new String[] { "RRULE:FREQ=DAILY;COUNT=2" },
+
                 Attendees = new EventAttendee[] {
-                    new EventAttendee() { DisplayName = patient.name, Email = "chad.hilke@gmail.com" },
+                    new EventAttendee() { DisplayName = patientObj.GiveName(), Email = patientObj.emailAddress },
+                    new EventAttendee() { DisplayName = doctorObj.GiveName(), Email = doctorObj.emailAddress },
                 },
                 Reminders = new Event.RemindersData()
                 {
@@ -144,11 +130,10 @@ namespace Hospital
                     Overrides = new EventReminder[] {
                         new EventReminder() { Method = "email", Minutes = 24 * 60 },
                         //new EventReminder() { Method = "sms", Minutes = 10 },
-                }
+                    }
                 }
             };
 
-            //String calendarId = "primary";
             EventsResource.InsertRequest request = service.Events.Insert(newEvent, calendarID);
             Event createdEvent = request.Execute();
             string link = createdEvent.HtmlLink;
@@ -196,4 +181,6 @@ namespace Hospital
         }
 
     }
+}
+
 }

@@ -10,8 +10,6 @@ namespace Hospital
     {
         public Nurse(string name, int age)
         {
-            this.name = name;
-            this.age = age;
         }
     }
 }

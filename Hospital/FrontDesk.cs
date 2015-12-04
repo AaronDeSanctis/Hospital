@@ -47,7 +47,7 @@ namespace Hospital
         {
             foreach (Patient patient in AllPatients)
             {
-                if (patient.name == currentPatient.name && patient.patientNum == currentPatient.patientNum)
+                if (patient.firstName == currentPatient.firstName && patient.patientNum == currentPatient.patientNum)
                 {
                     return true;
                 }

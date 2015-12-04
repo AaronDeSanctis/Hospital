@@ -10,60 +10,90 @@ namespace Hospital
     {
         Random rand;
         List<string> SymptomList;
-        public int patientNum;
-        public bool hasAppointment;
         public Patient()
         {
-            SymptomList = new List<string>() { "Cough", "Bloody Stool", "Broken Bone", "Lasceration", "Tumor", "Sneezing", "Jaundice", "Diarrhea", "Constipation", "Vomiting" };
-            Symptoms = new List<string>();
+            SymptomList = new List<string>();
             rand = new Random();
-            int numOfSymptoms = rand.Next(5);
-            generateSymptoms(numOfSymptoms);
+            GiveRandomPatientNum();
         }
-        public void GetStats(string Name, int Age, string PhoneNumber, bool HealthIns, int PatientNum)
+        public void GiveRandomPatientNum()
         {
-            this.name = Name;
-            this.age = Age;
-            this.phoneNumber = PhoneNumber;
-            this.healthIns = HealthIns;
-            this.patientNum = PatientNum;
-        }
-        private void generateSymptoms(int NumOfSymptoms)
-        {
-            for (int i = 0; i < NumOfSymptoms; i++)
+            this.patientNum++;
+            List<Patient> patients = new List<Patient>();
+            Database db = new Database();
+            //patients = db.ReadAllPatients();
+            foreach(Patient patient in patients)
             {
-                int index = rand.Next(SymptomList.Count);
-                string symptom = SymptomList[index];
-                if (Symptoms.Contains(symptom))
+                if (patient.patientNum == this.patientNum)
                 {
-                    continue;
-                }
-                else
-                {
-                    Symptoms.Add(symptom);
+                    GiveRandomPatientNum();
                 }
             }
         }
-        public int GiveRandomPatientNum()
+        public void SetFirstName(string FirstName)
         {
-            return rand.Next(999999999);
+            firstName = FirstName;
         }
-        public void ReceiveTreatments(List<Treatment> treatments)
+        public void SetMiddleName(string MiddleName)
         {
-            foreach (Treatment treatment in treatments)
-            {
-                ApplyTreatment(treatment);
-            }
+            middleName = MiddleName;
         }
-        private void ApplyTreatment(Treatment treatment)
+        public void SetLastName(string LastName)
         {
-            Console.WriteLine(treatment.treatmentName);
-            Console.WriteLine(treatment.instructions);
-            Console.ReadLine();
+            lastName = LastName;
         }
-        public DateTime MakeAppointment(DateTime datetime)
+        public void SetAddress1(string Address1)
         {
-            return datetime;
+            address1 = Address1;
+        }
+        public void SetAddress2(string Address2)
+        {
+            address2 = Address2;
+        }
+        public void SetCity(string City)
+        {
+            city = City;
+        }
+        public void SetState(string State)
+        {
+            state = State;
+        }
+        public void SetZipCode(string ZipCode)
+        {
+            zipCode = ZipCode;
+        }
+        public void SetPhoneNumber(string PhoneNumber)
+        {
+            phoneNumber = PhoneNumber;
+        }
+        public void SetSSN(string SSN)
+        {
+            this.SSN = SSN;
+        }
+        public void SetEmail(string EmailAddress)
+        {
+            emailAddress = EmailAddress;
+        }
+        public void CreateInsurance(string Insurance1, string Insurance2, string Insurance3, string Insurance4)
+        {
+            
+        }
+        public void SetHeight(string Height)
+        {
+            height = Height;
+        }
+        public void SetWeight(string Weight)
+        {
+            weight = Weight;
+        }
+        public void SetDateOfBirth(string DateOfBirth)
+        {
+            dateOfBirth = DateOfBirth;
+        }
+
+        public string GiveName()
+        {
+            return firstName + "" + middleName + " " + lastName;
         }
     }
 }

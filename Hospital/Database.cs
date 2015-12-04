@@ -50,5 +50,10 @@ namespace Hospital
             readFileStream.Close();
             return p;
         }
+
+        //internal List<Patient> ReadAllPatients()
+        //{
+            
+        //}
     }
 }

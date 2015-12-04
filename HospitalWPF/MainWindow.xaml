@@ -3,4 +3,72 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" MinHeight="525" MaxHeight="525" MinWidth="775" MaxWidth="775"
         >
+    <Grid Margin="0,0,0,9">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="170" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="170" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="170" />
+        </Grid.ColumnDefinitions>
+        <Label Grid.Column="2" Content="Update Patient Info :" Grid.ColumnSpan="2" FontSize="24" Margin="0,19,0,31" Grid.RowSpan="2" />
+        <Label Grid.Row="3" Grid.Column="0" Content="First Name :"/>
+        <TextBox x:Name="First_Name" Grid.Column="1" Grid.Row="3" Margin="3" TextChanged="First_Name_TextChanged" />
+        <Label Grid.Row="3" Grid.Column="2" Content="Last Name :"/>
+        <TextBox x:Name="Last_Name" Grid.Column="3" Grid.Row="3" Margin="3" TextChanged="Last_Name_TextChanged" />
+        <Label Grid.Row="3" Grid.Column="4" Content="Middle Name :"/>
+        <TextBox x:Name="Middle_Name" Grid.Column="5" Grid.Row="3" Margin="3" TextChanged="Middle_Name_TextChanged" />
+        <Label Grid.Row="4" Grid.Column="0" Content="Address 1:"/>
+        <TextBox x:Name="Address_1" Grid.Column="1" Grid.Row="4" Margin="3" Grid.ColumnSpan="5" TextChanged="Address_1_TextChanged" />
+        <Label Grid.Row="5" Grid.Column="0" Content="Address 2 :"/>
+        <TextBox x:Name="Address_2" Grid.Column="1" Grid.Row="5" Margin="3" Grid.ColumnSpan="5" TextChanged="Address_2_TextChanged" />
+        <Label Grid.Row="6" Grid.Column="0" Content="City :"/>
+        <TextBox x:Name="City" Grid.Column="1" Grid.Row="6" Margin="3" TextChanged="City_TextChanged" />
+        <Label Grid.Row="6" Grid.Column="2" Content="State :"/>
+        <TextBox x:Name="State" Grid.Column="3" Grid.Row="6" Margin="3" TextChanged="State_TextChanged" />
+        <Label Grid.Row="6" Grid.Column="4" Content="Zip Code :"/>
+        <TextBox x:Name="Zip_Code" Grid.Column="5" Grid.Row="6" Margin="3" TextChanged="Zip_Code_TextChanged" />
+        <Label Grid.Row="7" Grid.Column="0" Content="Date of Birth :"/>
+        <TextBox x:Name="Date_Of_Birth" Grid.Column="1" Grid.Row="7" Margin="3" TextChanged="Date_Of_Birth_TextChanged" />
+        <Label Grid.Row="7" Grid.Column="2" Content="Weight :"/>
+        <TextBox x:Name="Weight" Grid.Column="3" Grid.Row="7" Margin="3" TextChanged="Weight_TextChanged" />
+        <Label Grid.Row="7" Grid.Column="4" Content="Height :"/>
+        <TextBox x:Name="Height_" Grid.Column="5" Grid.Row="7" Margin="3" TextChanged="Height__TextChanged" />
+        <Label Grid.Row="8" Grid.Column="0" Content="Phone # :"/>
+        <TextBox x:Name="Phone_Number" Grid.Column="1" Grid.Row="8" Margin="3" TextChanged="Phone_Number_TextChanged" />
+        <Label Grid.Row="8" Grid.Column="2" Content="SSN :"/>
+        <TextBox x:Name="SSN" Grid.Column="3" Grid.Row="8" Margin="3" TextChanged="SSN_TextChanged" />
+        <Label Grid.Row="8" Grid.Column="4" Content="Email :"/>
+        <TextBox x:Name="Email" Grid.Column="5" Grid.Row="8" Margin="3" TextChanged="Email_TextChanged" />
+        <Label Grid.Row="9" Grid.Column="0" Content="Insurance ID :"/>
+        <TextBox x:Name="Insurance_ID" Grid.Column="1" Grid.Row="9" Margin="3" TextChanged="Insurance_ID_TextChanged"/>
+        <Label Grid.Row="9" Grid.Column="2" Content="Ins Provider :"/>
+        <TextBox x:Name="Insurance_Provider" Grid.Column="3" Grid.Row="9" Margin="3" TextChanged="Insurance_Provider_TextChanged" />
+        <Label Grid.Row="9" Grid.Column="4" Content="Ins Type :"/>
+        <TextBox x:Name="Insurance_Type" Grid.Column="5" Grid.Row="9" Margin="3" TextChanged="Insurance_Type_TextChanged" />
+        <Label Grid.Row="10" Grid.Column="0" Content="Ins Group ID :"/>
+        <TextBox x:Name="Insurance_Group_ID" Grid.Column="1" Grid.Row="10" Margin="3" TextChanged="Insurance_Group_ID_TextChanged" />
+        <Button x:Name="Done" Grid.Column="2" Grid.Row="11" HorizontalAlignment="Center" 
+            MinWidth="170" Margin="0,41,0,23" Content="Done" Click="Done_Click" Grid.ColumnSpan="2" Width="248" Grid.RowSpan="2"  />
+        <Button x:Name="Test" Grid.ColumnSpan="2" Content="Test" HorizontalAlignment="Left" Margin="27,48,0,0" Grid.Row="11" VerticalAlignment="Top" Width="75" Height="60" Grid.RowSpan="2" Click="Test_Click"/>
+    </Grid>
 </Window>
+    
+

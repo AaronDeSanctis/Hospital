@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patient xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <patientNum>1</patientNum>
+  <firstName>g</firstName>
+  <middleName>jj</middleName>
+  <lastName>hh</lastName>
+  <address1>kk</address1>
+  <address2>ll</address2>
+  <dateOfBirth>tf</dateOfBirth>
+  <state>ujhg</state>
+  <height>jg</height>
+  <weight>hg</weight>
+  <SSN>jh</SSN>
+  <emailAddress>ggkuy</emailAddress>
+  <phoneNumber>jhg</phoneNumber>
+  <zipCode>yfkuy</zipCode>
+  <city>bb</city>
+</Patient>

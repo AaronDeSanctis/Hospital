@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hospital", "Hospital\Hospital.csproj", "{242267B2-E648-44B1-9391-53F2E676131A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hospital_WindowsForms", "Hospital_WindowsForms\Hospital_WindowsForms.csproj", "{50577B83-ECA9-4F4C-97C0-7CE3E9430B6A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{242267B2-E648-44B1-9391-53F2E676131A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{242267B2-E648-44B1-9391-53F2E676131A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{242267B2-E648-44B1-9391-53F2E676131A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50577B83-ECA9-4F4C-97C0-7CE3E9430B6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50577B83-ECA9-4F4C-97C0-7CE3E9430B6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50577B83-ECA9-4F4C-97C0-7CE3E9430B6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50577B83-ECA9-4F4C-97C0-7CE3E9430B6A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

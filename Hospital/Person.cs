@@ -11,6 +11,7 @@ namespace Hospital
         public List<string> Symptoms;
         public string name;
         public int age;
+        public DateTime DOB;
         public string phoneNumber;
         public bool healthIns;
         public bool available;

@@ -20,7 +20,7 @@ namespace Hospital
         //(Calendar ID: n8jhsq7f2jft4i4kpifle3g650 @group.calendar.google.com)
         static string CalendarID = "n8jhsq7f2jft4i4kpifle3g650 @group.calendar.google.com";
 
-        private UserCredential Login()
+        private static UserCredential Login()
         {
             UserCredential credential;
 
@@ -46,11 +46,11 @@ namespace Hospital
             GetEventData(credential);
         }
 
-        public void AddAppointment(DateTime appt, Patient p, Doctor dr)
+        public string AddAppointment(DateTime appt, Patient p, Doctor dr)
         {
             UserCredential credential = Login();
-
-            AddEvent(appt, p, dr, credential);
+            string confirmation = AddEvent(appt, p, dr, credential);
+            return confirmation;
         }
 
 
@@ -93,7 +93,7 @@ namespace Hospital
             Console.Read();
         }
 
-        private void AddEvent(DateTime appt, Patient patient, Doctor doctor, UserCredential credential)
+        private string AddEvent(DateTime appt, Patient patient, Doctor doctor, UserCredential credential)
         {
             // Create Google Calendar API service.
             var service = new CalendarService(new BaseClientService.Initializer()
@@ -137,8 +137,16 @@ namespace Hospital
                 Resource = false,
             };
             appointment.Attendees.Add(dr);
+            EventsResource.InsertRequest request = service.Events.Insert(appointment, CalendarID);
+            Event createdEvent = request.Execute();
+            string link = createdEvent.HtmlLink;
+            return "Event Created " + link;
+            //Console.WriteLine("Event created: {0}", createdEvent.HtmlLink);
+        }
 
-            Console.WriteLine("Event created: %s\n", appointment.HtmlLink);
+        private void showInfo()
+        {
+            ;
         }
 
     }

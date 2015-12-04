@@ -8,16 +8,22 @@ namespace Hospital
 {
     public abstract class Person
     {
-<<<<<<< HEAD
-=======
-        public List<string> Symptoms;
-        public string name;
-        public int age;
         public DateTime DOB;
+        public int patientNum;
+        public string firstName;
+        public string middleName;
+        public string lastName;
+        public string address1;
+        public string address2;
+        public string dateOfBirth;
+        public string state;
+        public string height;
+        public string weight;
+        public string SSN;
+        public string emailAddress;
         public string phoneNumber;
-        public bool healthIns;
-        public bool available;
->>>>>>> b3f0720a8892b35801f71792aebc2c10a2aab978
+        public string zipCode;
+        public string city;
         public void Talk(List<string> sentence)
         {
             foreach (string word in sentence)

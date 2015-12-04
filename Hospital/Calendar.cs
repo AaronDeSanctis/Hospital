@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-﻿using Google.Apis.Auth.OAuth2;
+using Google.Apis.Auth.OAuth2;
 using Google.Apis.Services;
 using Google.Apis.Util.Store;
 using Google.Apis.Calendar.v3;
@@ -152,7 +151,6 @@ namespace Hospital
 
     }
 }
-=======
 
 ﻿//using Google.Apis.Auth.OAuth2;
 //using Google.Apis.Calendar.v3;
@@ -298,4 +296,3 @@ namespace Hospital
 
 //    }
 //}
->>>>>>> b86995e592acbe738270d36bcccb7f96d5619d89

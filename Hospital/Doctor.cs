@@ -22,5 +22,10 @@ namespace Hospital
             return "Here's Your Diagnosis";
         }
 
+
+        internal string GiveName()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

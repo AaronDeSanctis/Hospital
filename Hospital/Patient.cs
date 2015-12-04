@@ -10,21 +10,6 @@ namespace Hospital
     {
         Random rand;
         List<string> SymptomList;
-        public int patientNum;
-        public string firstName;
-        public string middleName;
-        public string lastName;
-        public string address1;
-        public string address2;
-        public string dateOfBirth;
-        public string state;
-        public string height;
-        public string weight;
-        public string SSN;
-        public string emailAddress;
-        public string phoneNumber;
-        public string zipCode;
-        public string city;
         public Patient()
         {
             SymptomList = new List<string>();
@@ -104,6 +89,11 @@ namespace Hospital
         public void SetDateOfBirth(string DateOfBirth)
         {
             dateOfBirth = DateOfBirth;
+        }
+
+        public string GiveName()
+        {
+            return firstName + "" + middleName + " " + lastName;
         }
     }
 }

@@ -9,7 +9,7 @@ namespace Hospital
     public class Patient : Person
     {
         Random rand;
-        List<string> SymptomList;
+        public List<string> SymptomList;
         public Patient()
         {
             SymptomList = new List<string>();
@@ -22,7 +22,7 @@ namespace Hospital
             List<Patient> patients = new List<Patient>();
             Database db = new Database();
             //patients = db.ReadAllPatients();
-            foreach(Patient patient in patients)
+            foreach (Patient patient in patients)
             {
                 if (patient.patientNum == this.patientNum)
                 {
@@ -70,13 +70,13 @@ namespace Hospital
         {
             this.SSN = SSN;
         }
-        public void SetEmail(string EmailAddress)
+        public void SetEmail(string EmailAddress="default@gmail.com")
         {
             emailAddress = EmailAddress;
         }
         public void CreateInsurance(string Insurance1, string Insurance2, string Insurance3, string Insurance4)
         {
-            
+
         }
         public void SetHeight(string Height)
         {
@@ -94,6 +94,10 @@ namespace Hospital
         public string GiveName()
         {
             return firstName + "" + middleName + " " + lastName;
+        }
+        public void SetSymptoms(List<string> symptomList)
+        {
+            this.SymptomList = symptomList;
         }
     }
 }

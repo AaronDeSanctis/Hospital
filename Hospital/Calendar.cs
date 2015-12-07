@@ -36,17 +36,6 @@ namespace Hospital
             UserCredential credentialObj = Login();
             Events events = GetEventData(credentialObj);
             return events;
-            /*foreach (var eventItem in events.Items)
-            {
-                string when = eventItem.Start.DateTime.ToString();
-                if (String.IsNullOrEmpty(when))
-                {
-                    when = eventItem.Start.Date;
-                }
-
-                string eventStr = String.Format("{0} ({1})", eventItem.Summary, when);
-            }
-            return when;*/
         }
 
         public string AddAppointment(DateTime appt, Patient patientObj, Doctor doctorObj)
@@ -71,7 +60,7 @@ namespace Hospital
             DateTime today = DateTime.Now;
             request.TimeMin = today.AddMonths(-1);
             request.TimeMax = today.AddMonths(1);
-            request.ShowDeleted = false;
+            request.ShowDeleted = true;
             request.SingleEvents = true;
             request.MaxResults = 10;
             request.OrderBy = EventsResource.ListRequest.OrderByEnum.StartTime;
@@ -79,19 +68,15 @@ namespace Hospital
             // List events.
             Events events = request.Execute();
             return events;
-            /*if (events.Items.Count > 0)
-            {
-                return events;
-            }
-            else
-            {
-                return null;
-            }*/
         }
 
         private string AddEvent(DateTime appt, Patient patientObj, Doctor doctorObj, UserCredential credential)
         {
             // Create Google Calendar API service
+            string hospitalEmail = "chad.hilke@gmail.com";
+            string hospitalLocation = "The Fake Hospital";
+            string description = "Doctor's appointment";
+            string summary = "Doctor's appointment";
             CalendarService service = new CalendarService(new BaseClientService.Initializer()
             {
                 HttpClientInitializer = credential,
@@ -101,9 +86,9 @@ namespace Hospital
             // Create Event
             Event newEvent = new Event()
             {
-                Summary = "Doctor's appointment ",
-                Location = "The Fake Hospital",
-                Description = "Problems with your prostate.",
+                Summary = summary,
+                Location = hospitalLocation,
+                Description = description,
                 Start = new EventDateTime()
                 {
                     DateTime = appt,
@@ -119,7 +104,7 @@ namespace Hospital
 
                 Attendees = new EventAttendee[] {
                     new EventAttendee() { DisplayName = patientObj.GiveName(), Email = patientObj.emailAddress },
-                    new EventAttendee() { DisplayName = doctorObj.GiveName(), Email = "doctor@fakehospital.com" },
+                    new EventAttendee() { DisplayName = doctorObj.GiveName(), Email = hospitalEmail },
                 },
                 Reminders = new Event.RemindersData()
                 {
@@ -131,10 +116,18 @@ namespace Hospital
                 }
             };
 
-            EventsResource.InsertRequest request = service.Events.Insert(newEvent, calendarID);
-            Event createdEvent = request.Execute();
-            string link = createdEvent.HtmlLink;
-            return "Event Created " + link;
+            try
+            {
+                EventsResource.InsertRequest request = service.Events.Insert(newEvent, calendarID);
+                Event createdEvent = request.Execute();
+                string eventStr = String.Format("{0} set for {1}", createdEvent.Description, createdEvent.Start.DateTime.ToString());
+                return "Appointment made " + eventStr;
+            }
+            catch
+            {
+                return "Appointment not made. Please call.";
+            }
+            
         }
 
     }

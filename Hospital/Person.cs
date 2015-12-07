@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Hospital
 {
-    public abstract class Person
+    public abstract class Person : Iperson
     {
         public DateTime DOB;
         public int patientNum;
@@ -24,12 +24,8 @@ namespace Hospital
         public string phoneNumber;
         public string zipCode;
         public string city;
-        public void Talk(List<string> sentence)
+        public void talk()
         {
-            foreach (string word in sentence)
-            {
-                Console.WriteLine(word);
-            }
         }
         public void Listen(List<string> sentence)
         {
@@ -38,7 +34,6 @@ namespace Hospital
             {
                 response.Add(word);
             }
-            Talk(response);
         }
         public void Wait()
         {

@@ -1,0 +1,41 @@
+﻿<Window x:Class="HospitalWPF.ChooseSymptoms"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ChooseSymptoms" MinHeight="525" MaxHeight="525" MinWidth="775" MaxWidth="775">
+    <Grid>
+        <TextBlock Margin="10,11,365,418" FontSize="25">Immediate Symptoms:</TextBlock>
+        <Button x:Name="Coughing" Click="Coughing_Click" Margin="270,321,0,0" HorizontalAlignment="Left" Width="125" Height="25" VerticalAlignment="Top">Coughing</Button>
+        <Button x:Name="Diarrhea" Click="Diarrhea_Click" Margin="270,351,0,0" HorizontalAlignment="Left" Width="125" Height="25" VerticalAlignment="Top">Diarrhea</Button>
+        <Button x:Name="Vomiting" Click="Vomiting_Click" Margin="270,381,0,0" HorizontalAlignment="Left" Width="125" Height="25" VerticalAlignment="Top">Vomiting</Button>
+        <Button x:Name="Hemorrhoids" Click="Hemorrhoids_Click" Margin="270,291,0,0" HorizontalAlignment="Left" Width="125" Height="25" VerticalAlignment="Top">Hemorrhoids</Button>
+        <Button x:Name="Bloody_Stool" Click="Bloody_Stool_Click" Margin="270,201,0,0" HorizontalAlignment="Left" Width="125" Height="25" VerticalAlignment="Top">Bloody Stool</Button>
+        <Button x:Name="Headaches" Click="Headaches_Click" Margin="270,171,0,0" HorizontalAlignment="Left" Width="125" Height="25" VerticalAlignment="Top">Headaches</Button>
+        <Button x:Name="Migraines" Click="Migraines_Click" Margin="270,141,0,0" HorizontalAlignment="Left" Width="125" Height="25" VerticalAlignment="Top">Migraines</Button>
+        <Button x:Name="Muscle_Soreness" Click="Muscle_Soreness_Click" Margin="270,111,0,0" HorizontalAlignment="Left" Width="125" Height="25" VerticalAlignment="Top">Muscle Soreness</Button>
+        <Button x:Name="Difficulty_Breathing" Click="Difficulty_Breathing_Click" Margin="270,261,0,0" HorizontalAlignment="Left" Width="125" Height="25" VerticalAlignment="Top">Difficulty Breathing</Button>
+        <Button x:Name="Constipation" Click="Constipation_Click" Margin="140,381,0,0" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="125">Constipation</Button>
+        <Button x:Name="Rash" Click="Rash_Click" Margin="140,351,0,0" Content="Rash" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="125"/>
+        <Button x:Name="Lasceration" Click="Lasceration_Click" Margin="140,321,0,0" Content="Lasceration" HorizontalAlignment="Left" Width="125" Height="25" VerticalAlignment="Top"/>
+        <Button x:Name="Broken_Bone" Click="Broken_Bone_Click" Margin="140,291,0,0" Content="Broken Bone" HorizontalAlignment="Left" Width="125" Height="25" VerticalAlignment="Top"/>
+        <Button x:Name="Runny_Nose" Click="Runny_Nose_Click" Margin="140,261,0,0" Content="Runny Nose" HorizontalAlignment="Left" Width="125" Height="25" VerticalAlignment="Top"/>
+        <Button x:Name="Bleeding" Click="Bleeding_Click" Margin="140,231,0,0" Content="Bleeding" HorizontalAlignment="Left" Width="125" Height="25" VerticalAlignment="Top"/>
+        <Button x:Name="Dizzyness" Click="Dizzyness_Click" Margin="140,201,0,0" Content="Dizzyness" HorizontalAlignment="Left" Width="125" Height="25" VerticalAlignment="Top"/>
+        <Button x:Name="Sweating" Click="Sweating_Click" Margin="140,171,0,0" Content="Sweating" HorizontalAlignment="Left" Width="125" Height="25" VerticalAlignment="Top"/>
+        <Button x:Name="Night_Terrors" Click="Night_Terrors_Click" Margin="140,141,0,0" Content="Night Terrors" HorizontalAlignment="Left" Width="125" Height="25" VerticalAlignment="Top"/>
+        <Button x:Name="Depression" Click="Depression_Click" Margin="140,111,0,0" Content="Depression" HorizontalAlignment="Left" Width="125" Height="25" VerticalAlignment="Top"/>
+        <Button x:Name="Concussion" Click="Concussion_Click" Margin="270,231,0,0" Content="Concussion" HorizontalAlignment="Left" Width="125" Height="25" VerticalAlignment="Top"/>
+        <Button x:Name="Blurred_Vision" Click="Blurred_Vision_Click" Margin="10,381,0,0" Content="Blurred Vision" HorizontalAlignment="Left" Width="125" Height="25" VerticalAlignment="Top"/>
+        <Button x:Name="Hair_Loss" Click="Hair_Loss_Click" Margin="10,351,0,0" Content="Hair Loss" HorizontalAlignment="Left" Width="125" Height="25" VerticalAlignment="Top"/>
+        <Button x:Name="Bruising" Click="Bruising_Click" Margin="10,321,0,0" Content="Bruising" HorizontalAlignment="Left" Width="125" Height="25" VerticalAlignment="Top"/>
+        <Button x:Name="General_Pain" Click="General_Pain_Click" Margin="10,291,0,0" Content="General Pain" HorizontalAlignment="Left" Width="125" Height="25" VerticalAlignment="Top"/>
+        <Button x:Name="Light_Sensitivity" Click="Light_Sensitivity_Click" Margin="10,261,0,0" Content="Light Sensitivity" HorizontalAlignment="Left" Width="125" Height="25" VerticalAlignment="Top"/>
+        <Button x:Name="Sexual_Impotency" Click="Sexual_Impotency_Click" Margin="10,231,0,0" Content="Sexual Impotency" HorizontalAlignment="Left" Width="125" Height="25" VerticalAlignment="Top"/>
+        <Button x:Name="Fainting" Click="Fainting_Click" Margin="10,201,0,0" Content="Fainting" HorizontalAlignment="Left" Width="125" Height="25" VerticalAlignment="Top"/>
+        <Button x:Name="Chills" Click="Chills_Click" Margin="10,171,0,0" Content="Chills" HorizontalAlignment="Left" Width="125" Height="25" VerticalAlignment="Top"/>
+        <Button x:Name="Fever" Click="Fever_Click" Margin="10,141,0,0" Content="Fever" HorizontalAlignment="Left" Width="125" Height="25" VerticalAlignment="Top"/>
+        <Button x:Name="Sneezing" Click="Sneezing_Click" Margin="10,111,0,0" Content="Sneezing" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="125"/>
+        <Button x:Name="Clear" Content="Clear" Margin="60,411,0,0" VerticalAlignment="Top" Click="Clear_Click" HorizontalAlignment="Left" Width="75"/>
+        <Button x:Name="Done" Content="Done" Margin="257,428,0,0" VerticalAlignment="Top" Click="Done_Click" HorizontalAlignment="Left" Width="241" Height="44"/>
+        <TextBox x:Name="SymptomList" Text="{Binding Hospital.Patient.SymptomList}" HorizontalAlignment="Left" Height="298" Margin="400,108,0,0" VerticalAlignment="Top" Width="345" TextChanged="SymptomList_TextChanged" TextWrapping="Wrap"/>
+    </Grid>
+</Window>

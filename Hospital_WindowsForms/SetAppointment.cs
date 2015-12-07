@@ -19,6 +19,7 @@ namespace Hospital_WindowsForms
     {
         Hospital.Patient patientObj = new Hospital.Patient();
         private string[] doctorArray = new string[5];
+        private List<string> previousAppts = new List<string>();
 
         public SetAppointment(Hospital.Patient patientObj)
         {
@@ -35,22 +36,31 @@ namespace Hospital_WindowsForms
                 comboBox1.Items.Add(doctorName);
             }
             comboBox1.SelectedIndex = 0;
+
             Hospital.Calendar calendar = new Hospital.Calendar();
             Events occupiedDates = new Events();
             occupiedDates = calendar.GetEvents();
-            /*if (occupiedDates != null)
+            if (occupiedDates != null)
             {
                 foreach (var eventItem in occupiedDates.Items)
                 {
-                    string eventStr = String.Format("{0} ({1})", eventItem.Summary, eventItem.OriginalStartTime);
-                    MessageBox.Show(eventStr);
+                    string eventStr = String.Format("{0} ({1})", eventItem.Description, eventItem.Start);
+                    previousAppts.Add(eventStr);
+                }
+            }
+            if (previousAppts.Count() != 0)
+            {
+                foreach (string appointment in previousAppts)
+                {
+                    comboBox2.Items.Add(appointment);
                 }
             }
             else
             {
-                MessageBox.Show("No events found.");
-            }  */  
-            
+                comboBox2.Items.Add("No appointments found.");
+            }
+            comboBox2.SelectedIndex = 0;
+
         }
 
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
@@ -69,6 +79,12 @@ namespace Hospital_WindowsForms
             DateTime apptDate = new DateTime();
             apptDate = dateTimePicker1.Value.Date + dateTimePicker2.Value.TimeOfDay;
 
+            // Get symptoms.
+            List<string> symptomList = new List<string>();
+            string symptoms = textBox1.Text;
+            symptomList = symptoms.Split(',').ToList();
+            patientObj.SetSymptoms(symptomList);
+
             // Send appointment to Google Calendar
             Hospital.Calendar calendar = new Hospital.Calendar();
             string doctorName = comboBox1.Text;
@@ -76,7 +92,7 @@ namespace Hospital_WindowsForms
             string apptInfo = calendar.AddAppointment(apptDate, patientObj, doctorObj);
             MessageBox.Show(apptInfo);
 
-            // Write patient to database
+            // Write patient to xml file.
             Hospital.Database DB = new Hospital.Database();
             DB.Save(patientObj);
             Application.Exit();
@@ -101,6 +117,11 @@ namespace Hospital_WindowsForms
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             ;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

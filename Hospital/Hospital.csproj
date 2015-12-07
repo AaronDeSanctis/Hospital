@@ -13,7 +13,7 @@
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-	<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -99,11 +99,13 @@
     <Compile Include="Appointment.cs" />
     <Compile Include="Calendar.cs" />
     <Compile Include="Database.cs" />
+    <Compile Include="Database2.cs" />
     <Compile Include="Diagnosis.cs" />
     <Compile Include="Doctor.cs" />
     <Compile Include="ExamRoom.cs" />
     <Compile Include="FrontDesk.cs" />
     <Compile Include="Insurance.cs" />
+    <Compile Include="Iperson.cs" />
     <Compile Include="MedProfessional.cs" />
     <Compile Include="Nurse.cs" />
     <Compile Include="Patient.cs" />

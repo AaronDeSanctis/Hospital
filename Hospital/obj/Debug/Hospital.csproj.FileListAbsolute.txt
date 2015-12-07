@@ -36,3 +36,4 @@ C:\Users\Chilke\Documents\C#\Hospital\Hospital\bin\Debug\Microsoft.Threading.Tas
 C:\Users\Chilke\Documents\C#\Hospital\Hospital\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.xml
 C:\Users\Chilke\Documents\C#\Hospital\Hospital\obj\Debug\Hospital.dll
 C:\Users\Chilke\Documents\C#\Hospital\Hospital\obj\Debug\Hospital.pdb
+C:\Users\Chilke\Documents\C#\Hospital\Hospital\obj\Debug\Hospital.csprojResolveAssemblyReference.cache
